@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -75,12 +76,26 @@ WSGI_APPLICATION = 'django_ci_cd.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+import pymysql
+
+DEFAULT_DATABASE = {
+    'ENGINE': os.getenv('APP_DB_ENGINE', 'django.db.backends.mysql'),
+    'NAME': os.getenv('APP_DB_NAME', 'django_ci_cd'),
+    'USER': os.getenv('APP_DB_USER', 'root'),
+    'PASSWORD': os.getenv('APP_DB_PASSWORD', 'postgres'),
+    'HOST': os.getenv('APP_DB_HOST', 'localhost'),
+    'PORT': os.getenv('APP_DB_PORT', '3306'),
+    'CONN_MAX_AGE': 300
 }
+
+DATABASES = {
+    'default': DEFAULT_DATABASE
+}
+
+# DATABASES['default'] = dj_database_url.config()
+# DATABASES['default']['OPTIONS'] = {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"}
+pymysql.version_info = (1, 4, 2, "final", 0)
+pymysql.install_as_MySQLdb()
 
 
 # Password validation
