@@ -15,7 +15,7 @@ jobs:
         env:
           MYSQL_ROOT_PASSWORD: postgres
           MYSQL_DATABASE: django_ci_cd
-        ports: ['3306:3306']
+        ports: ["3306:3306"]
 
     strategy:
       max-parallel: 4
@@ -34,7 +34,7 @@ jobs:
           pip install -r requirements.txt
       - name: Run Migrations
         run: python manage.py migrate
-        env: 
+        env:
           APP_DB_ENGINE: django.db.backends.mysql
           APP_DB_NAME: django_ci_cd
           APP_DB_USER: root
@@ -44,7 +44,7 @@ jobs:
       - name: Run Tests
         run: |
           python manage.py test
-        env: 
+        env:
           APP_DB_ENGINE: django.db.backends.mysql
           APP_DB_NAME: django_ci_cd
           APP_DB_USER: root
