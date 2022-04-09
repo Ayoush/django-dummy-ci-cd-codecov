@@ -78,15 +78,15 @@ WSGI_APPLICATION = 'django_ci_cd.wsgi.application'
 
 # import pymysql
 
-# DEFAULT_DATABASE = {
-#     'ENGINE': os.getenv('APP_DB_ENGINE', 'django.db.backends.mysql'),
-#     'NAME': os.getenv('APP_DB_NAME', 'django_ci_cd'),
-#     'USER': os.getenv('APP_DB_USER', 'root'),
-#     'PASSWORD': os.getenv('APP_DB_PASSWORD', 'postgres'),
-#     'HOST': os.getenv('APP_DB_HOST', 'localhost'),
-#     'PORT': os.getenv('APP_DB_PORT', '3306'),
-#     'CONN_MAX_AGE': 300
-# }
+DEFAULT_DATABASE = {
+    'ENGINE': os.getenv('APP_DB_ENGINE', 'django.db.backends.mysql'),
+    'NAME': os.getenv('APP_DB_NAME', 'django_ci_cd'),
+    'USER': os.getenv('APP_DB_USER', 'root'),
+    'PASSWORD': os.getenv('APP_DB_PASSWORD', 'postgres'),
+    'HOST': os.getenv('APP_DB_HOST', '127.0.0.1'),
+    'PORT': os.getenv('APP_DB_PORT', ''),
+    'CONN_MAX_AGE': 300
+}
 
 # DATABASES = {
 #     'default': {

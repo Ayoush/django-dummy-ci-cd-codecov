@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     services:
       mysql:
-        image: mysql:8.0.21
+        image: mysql:latest
         env:
           MYSQL_ROOT_PASSWORD: postgres
           MYSQL_DATABASE: django_ci_cd
@@ -39,7 +39,7 @@ jobs:
           APP_DB_NAME: django_ci_cd
           APP_DB_USER: root
           APP_DB_PASSWORD: postgres
-          APP_DB_HOST: localhost
+          APP_DB_HOST: 127.0.0.1
           APP_DB_PORT: $
       - name: Run Tests
         run: |
@@ -49,7 +49,7 @@ jobs:
           APP_DB_NAME: django_ci_cd
           APP_DB_USER: root
           APP_DB_PASSWORD: postgres
-          APP_DB_HOST: localhost
+          APP_DB_HOST: 127.0.0.1
           APP_DB_PORT: $
       - name: Coverage report
         run: |
