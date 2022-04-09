@@ -13,3 +13,6 @@ class TestModels(TestCase):
     def test_org_name_uniqueness(self):
          with self.assertRaises(IntegrityError):
              Org.objects.create(name='Org1', email='org1@email.com')
+
+    def test_org_actually_getting_created(self):
+          self.assertEquals(self.org1.name, 'Org1')       
