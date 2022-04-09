@@ -13,7 +13,7 @@ jobs:
       mysql:
         image: mysql:8.0.21
         env:
-          MYSQL_ROOT_PASSWORD: django
+          MYSQL_ROOT_PASSWORD: postgres
           MYSQL_DATABASE: django_ci_cd
         ports: ['3306:3306']
   
@@ -39,7 +39,7 @@ jobs:
           APP_DB_NAME: django_ci_cd
           APP_DB_USER: root
           APP_DB_PASSWORD: postgres
-          APP_DB_HOST: 127.0.0.1
+          APP_DB_HOST: localhost
           APP_DB_PORT: 3306
       - name: Run Tests
         run: |
@@ -49,7 +49,7 @@ jobs:
           APP_DB_NAME: django_ci_cd
           APP_DB_USER: root
           APP_DB_PASSWORD: postgres
-          APP_DB_HOST: 127.0.0.1
+          APP_DB_HOST: localhost
           APP_DB_PORT: 3306
       - name: Coverage report
         run: |

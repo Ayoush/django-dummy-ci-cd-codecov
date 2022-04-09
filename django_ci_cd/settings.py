@@ -88,12 +88,23 @@ DEFAULT_DATABASE = {
     'CONN_MAX_AGE': 300
 }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql', 
+#         'NAME': 'django_ci_cd',
+#         'USER': 'root',
+#         'PASSWORD': 'postgres',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#     }
+# }
+
 DATABASES = {
     'default': DEFAULT_DATABASE
 }
 
-# # DATABASES['default'] = dj_database_url.config()
-# # DATABASES['default']['OPTIONS'] = {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"}
+# DATABASES['default'] = dj_database_url.config()
+# DATABASES['default']['OPTIONS'] = {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"}
 # pymysql.version_info = (1, 4, 2, "final", 0)
 # pymysql.install_as_MySQLdb()
 
