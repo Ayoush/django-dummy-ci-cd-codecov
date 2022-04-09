@@ -83,19 +83,26 @@ DEFAULT_DATABASE = {
     'NAME': os.getenv('APP_DB_NAME', 'django_ci_cd'),
     'USER': os.getenv('APP_DB_USER', 'root'),
     'PASSWORD': os.getenv('APP_DB_PASSWORD', 'postgres'),
-    'HOST': os.getenv('APP_DB_HOST', 'localhost'),
-    'PORT': os.getenv('APP_DB_PORT', '3306'),
+    'HOST': os.getenv('APP_DB_HOST', '127.0.0.1'),
+    'PORT': os.getenv('APP_DB_PORT', ''),
     'CONN_MAX_AGE': 300
 }
 
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.mysql', 
-#         'NAME': 'django_ci_cd',
-#         'USER': 'root',
-#         'PASSWORD': 'postgres',
-#         'HOST': 'localhost',
-#         'PORT': '3306',
+#         'ENGINE': os.getenv('APP_DB_ENGINE', 'django.db.backends.mysql'),
+#         'NAME': os.getenv('APP_DB_NAME', 'django_ci_cd'),
+#         'USER': os.getenv('APP_DB_USER', 'root'),
+#         'PASSWORD': os.getenv('APP_DB_PASSWORD', 'postgres'),
+#         'HOST': os.getenv('APP_DB_HOST', '127.0.0.1'),
+#         'PORT': 3306,
+#         'CONN_MAX_AGE': 300
+#     }
+# }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
 
