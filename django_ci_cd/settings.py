@@ -78,15 +78,15 @@ WSGI_APPLICATION = 'django_ci_cd.wsgi.application'
 
 # import pymysql
 
-DEFAULT_DATABASE = {
-    'ENGINE': os.getenv('APP_DB_ENGINE', 'django.db.backends.mysql'),
-    'NAME': os.getenv('APP_DB_NAME', 'django_ci_cd'),
-    'USER': os.getenv('APP_DB_USER', 'root'),
-    'PASSWORD': os.getenv('APP_DB_PASSWORD', 'postgres'),
-    'HOST': os.getenv('APP_DB_HOST', 'localhost'),
-    'PORT': os.getenv('APP_DB_PORT', '3306'),
-    'CONN_MAX_AGE': 300
-}
+# DEFAULT_DATABASE = {
+#     'ENGINE': os.getenv('APP_DB_ENGINE', 'django.db.backends.mysql'),
+#     'NAME': os.getenv('APP_DB_NAME', 'django_ci_cd'),
+#     'USER': os.getenv('APP_DB_USER', 'root'),
+#     'PASSWORD': os.getenv('APP_DB_PASSWORD', 'postgres'),
+#     'HOST': os.getenv('APP_DB_HOST', 'localhost'),
+#     'PORT': os.getenv('APP_DB_PORT', '3306'),
+#     'CONN_MAX_AGE': 300
+# }
 
 # DATABASES = {
 #     'default': {
@@ -98,10 +98,16 @@ DEFAULT_DATABASE = {
 #         'PORT': '3306',
 #     }
 # }
-
 DATABASES = {
-    'default': DEFAULT_DATABASE
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
+
+# DATABASES = {
+#     'default': DEFAULT_DATABASE
+# }
 
 # DATABASES['default'] = dj_database_url.config()
 # DATABASES['default']['OPTIONS'] = {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"}
