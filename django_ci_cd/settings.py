@@ -88,16 +88,17 @@ DEFAULT_DATABASE = {
     'CONN_MAX_AGE': 300
 }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql', 
-#         'NAME': 'django_ci_cd',
-#         'USER': 'root',
-#         'PASSWORD': 'postgres',
-#         'HOST': 'localhost',
-#         'PORT': '3306',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': os.getenv('APP_DB_ENGINE', 'django.db.backends.mysql'),
+        'NAME': os.getenv('APP_DB_NAME', 'django_ci_cd'),
+        'USER': os.getenv('APP_DB_USER', 'root'),
+        'PASSWORD': os.getenv('APP_DB_PASSWORD', 'postgres'),
+        'HOST': os.getenv('APP_DB_HOST', '127.0.0.1'),
+        'PORT': 3306,
+        'CONN_MAX_AGE': 300
+    }
+}
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
@@ -105,9 +106,9 @@ DEFAULT_DATABASE = {
 #     }
 # }
 
-DATABASES = {
-    'default': DEFAULT_DATABASE
-}
+# DATABASES = {
+#     'default': DEFAULT_DATABASE
+# }
 
 # DATABASES['default'] = dj_database_url.config()
 # DATABASES['default']['OPTIONS'] = {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"}
