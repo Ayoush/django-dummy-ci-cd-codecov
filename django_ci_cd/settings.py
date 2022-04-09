@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'django_ci_cd.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-import pymysql
+# import pymysql
 
 DEFAULT_DATABASE = {
     'ENGINE': os.getenv('APP_DB_ENGINE', 'django.db.backends.mysql'),
@@ -92,10 +92,10 @@ DATABASES = {
     'default': DEFAULT_DATABASE
 }
 
-# DATABASES['default'] = dj_database_url.config()
-# DATABASES['default']['OPTIONS'] = {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"}
-pymysql.version_info = (1, 4, 2, "final", 0)
-pymysql.install_as_MySQLdb()
+# # DATABASES['default'] = dj_database_url.config()
+# # DATABASES['default']['OPTIONS'] = {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"}
+# pymysql.version_info = (1, 4, 2, "final", 0)
+# pymysql.install_as_MySQLdb()
 
 
 # Password validation
